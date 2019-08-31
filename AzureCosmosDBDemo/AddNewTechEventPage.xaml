@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:Local="clr-namespace:AzureCosmosDBDemo"
+             x:Class="AzureCosmosDBDemo.AddNewTechEventPage"
+             Title="Event Details">
+    <ContentPage.Content>
+        <StackLayout Padding="15" Spacing="0">
+            <StackLayout.BindingContext>
+                <Local:TechEventsViewModel/>
+            </StackLayout.BindingContext>
+
+            <StackLayout>
+            
+            <Label Text="Event"
+                FontAttributes="Bold"
+                FontSize="Medium"/>
+            
+            <Entry Text="{Binding Event}" HorizontalOptions="FillAndExpand"></Entry>
+
+            <Label Text="Location"
+                FontAttributes="Bold"
+                FontSize="Medium"/>
+            <Entry Text="{Binding Location}" HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+
+            <Label Text="When"
+                FontAttributes="Bold"
+                FontSize="Medium"/>
+            <Entry Text="{Binding When}" HorizontalOptions="FillAndExpand"></Entry>
+
+            <Button Text="SAVE" Command="{Binding SaveEventCommand}" ></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

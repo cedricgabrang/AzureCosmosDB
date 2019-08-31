@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="techEventsListPage"
+             x:Class="AzureCosmosDBDemo.TechEventsListPage"
+             Title="Tech Events List">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding TechEventsList}"
+              CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Event}" Detail="{Binding Location}">
+                        <TextCell.ContextActions>
+                            <MenuItem Command="{Binding Path=BindingContext.DeleteEventCommand, Source={x:Reference techEventsListPage}}" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddEventCommand}" />
+    </ContentPage.ToolbarItems>
+</ContentPage>
